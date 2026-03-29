@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+* {
+  @apply scroll-smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+}
+
+body {
+  @apply bg-white dark:bg-background text-gray-900 dark:text-white font-sans;
+  background-attachment: fixed;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Typography Utilities */
+h1 {
+  @apply text-h1 font-display font-bold text-white dark:text-white;
+}
+
+h2 {
+  @apply text-h2 font-display font-bold text-gray-900 dark:text-white;
+}
+
+h3 {
+  @apply text-h3 font-display font-semibold text-gray-900 dark:text-white;
+}
+
+p {
+  @apply text-body text-gray-600 dark:text-gray-300;
+}
+
+/* Custom Component Styles */
+.glass-card {
+  @apply bg-gray-50 dark:bg-white/10 backdrop-blur-glass border
+    border-gray-200 dark:border-white/20 rounded-2xl
+    transition-colors duration-300;
+}
+
+.glow-button {
+  @apply relative inline-flex items-center justify-center px-8 py-3
+    font-semibold text-white rounded-lg font-display
+    transition-all duration-300 ease-out;
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.3);
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 40px rgba(0, 224, 255, 0.6);
+  @apply scale-105;
+}
+
+.glow-button.primary {
+  @apply bg-gradient-to-r from-accent to-cyan-400 text-black;
+}
+
+.glow-button.secondary {
+  @apply bg-white/10 dark:bg-white/10 border border-accent text-accent;
+}
+
+.glow-button.secondary:hover {
+  @apply bg-accent/10;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+/* Scroll Animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Light theme specific */
+html:not(.dark) {
+  --accent-color: #0891b2;
+  color-scheme: light;
+}
+
+html:not(.dark) body {
+  @apply bg-white text-gray-900;
+}
+
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3 {
+  @apply text-gray-900;
+}
+
+html:not(.dark) p {
+  @apply text-gray-600;
+}
+
+html:not(.dark) .glass-card {
+  @apply bg-gray-50 border-gray-200;
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Skip to main content link */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}

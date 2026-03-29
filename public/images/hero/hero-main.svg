@@ -1,0 +1,96 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B0F1A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a2847;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d1b4e;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow1" cx="30%" cy="20%">
+      <stop offset="0%" style="stop-color:#00E0FF;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#00E0FF;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="glow2" cx="80%" cy="80%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#heroGradient)"/>
+  <circle cx="200" cy="100" r="300" fill="url(#glow1)" opacity="0.6"/>
+  <circle cx="1000" cy="700" r="400" fill="url(#glow2)" opacity="0.5"/>
+
+  <!-- Large neural network visualization -->
+  <g transform="translate(600, 400)">
+    <!-- Central hub -->
+    <circle cx="0" cy="0" r="20" fill="#00E0FF" filter="drop-shadow(0 0 20px #00E0FF)"/>
+
+    <!-- Outer ring nodes -->
+    <circle cx="0" cy="-150" r="12" fill="#7C3AED" filter="drop-shadow(0 0 10px #7C3AED)"/>
+    <circle cx="130" cy="-75" r="12" fill="#7C3AED" filter="drop-shadow(0 0 10px #7C3AED)"/>
+    <circle cx="130" cy="75" r="12" fill="#00E0FF" filter="drop-shadow(0 0 10px #00E0FF)"/>
+    <circle cx="0" cy="150" r="12" fill="#7C3AED" filter="drop-shadow(0 0 10px #7C3AED)"/>
+    <circle cx="-130" cy="75" r="12" fill="#00E0FF" filter="drop-shadow(0 0 10px #00E0FF)"/>
+    <circle cx="-130" cy="-75" r="12" fill="#7C3AED" filter="drop-shadow(0 0 10px #7C3AED)"/>
+
+    <!-- Inner ring nodes -->
+    <circle cx="0" cy="-80" r="8" fill="#00E0FF" opacity="0.8"/>
+    <circle cx="70" cy="-40" r="8" fill="#00E0FF" opacity="0.8"/>
+    <circle cx="70" cy="40" r="8" fill="#00E0FF" opacity="0.8"/>
+    <circle cx="0" cy="80" r="8" fill="#00E0FF" opacity="0.8"/>
+    <circle cx="-70" cy="40" r="8" fill="#00E0FF" opacity="0.8"/>
+    <circle cx="-70" cy="-40" r="8" fill="#00E0FF" opacity="0.8"/>
+
+    <!-- Connection lines with gradient -->
+    <g stroke="#00E0FF" stroke-width="1.5" opacity="0.4">
+      <line x1="0" y1="0" x2="0" y2="-150"/>
+      <line x1="0" y1="0" x2="130" y2="-75"/>
+      <line x1="0" y1="0" x2="130" y2="75"/>
+      <line x1="0" y1="0" x2="0" y2="150"/>
+      <line x1="0" y1="0" x2="-130" y2="75"/>
+      <line x1="0" y1="0" x2="-130" y2="-75"/>
+    </g>
+
+    <!-- Inner connections -->
+    <g stroke="#7C3AED" stroke-width="1" opacity="0.3">
+      <line x1="0" y1="-80" x2="70" y2="-40"/>
+      <line x1="70" y1="-40" x2="70" y2="40"/>
+      <line x1="70" y1="40" x2="0" y2="80"/>
+      <line x1="0" y1="80" x2="-70" y2="40"/>
+      <line x1="-70" y1="40" x2="-70" y2="-40"/>
+      <line x1="-70" y1="-40" x2="0" y2="-80"/>
+    </g>
+  </g>
+
+  <!-- Floating particles -->
+  <g fill="#00E0FF" opacity="0.6">
+    <circle cx="150" cy="150" r="3"/>
+    <circle cx="400" cy="250" r="2"/>
+    <circle cx="800" cy="180" r="2.5"/>
+    <circle cx="1050" cy="400" r="2"/>
+  </g>
+
+  <g fill="#7C3AED" opacity="0.5">
+    <circle cx="300" cy="600" r="2"/>
+    <circle cx="950" cy="200" r="3"/>
+    <circle cx="500" cy="750" r="2.5"/>
+    <circle cx="1100" cy="600" r="2"/>
+  </g>
+
+  <!-- Grid background with perspective -->
+  <g stroke="#00E0FF" stroke-width="0.5" opacity="0.1">
+    <!-- Horizontal lines perspective -->
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="50" y1="620" x2="1150" y2="620"/>
+    <line x1="100" y1="640" x2="1100" y2="640"/>
+    <line x1="150" y1="660" x2="1050" y2="660"/>
+    <line x1="200" y1="680" x2="1000" y2="680"/>
+    <line x1="250" y1="700" x2="950" y2="700"/>
+
+    <!-- Vertical lines -->
+    <line x1="300" y1="550" x2="350" y2="750"/>
+    <line x1="450" y1="550" x2="500" y2="750"/>
+    <line x1="600" y1="550" x2="650" y2="750"/>
+    <line x1="750" y1="550" x2="800" y2="750"/>
+    <line x1="900" y1="550" x2="950" y2="750"/>
+  </g>
+</svg>

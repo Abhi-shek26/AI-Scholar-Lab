@@ -1,0 +1,37 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="researchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B0F1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f3a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#researchGrad)"/>
+
+  <!-- Chart/Research visualization -->
+  <g transform="translate(100, 120)">
+    <!-- Axes -->
+    <line x1="0" y1="200" x2="350" y2="200" stroke="#00E0FF" stroke-width="2" opacity="0.6"/>
+    <line x1="0" y1="0" x2="0" y2="200" stroke="#00E0FF" stroke-width="2" opacity="0.6"/>
+
+    <!-- Data bars -->
+    <rect x="20" y="120" width="35" height="80" fill="#7C3AED" rx="4" opacity="0.8"/>
+    <rect x="70" y="60" width="35" height="140" fill="#00E0FF" rx="4" opacity="0.8"/>
+    <rect x="120" y="40" width="35" height="160" fill="#7C3AED" rx="4" opacity="0.8"/>
+    <rect x="170" y="80" width="35" height="120" fill="#00E0FF" rx="4" opacity="0.8"/>
+    <rect x="220" y="50" width="35" height="150" fill="#7C3AED" rx="4" opacity="0.8"/>
+    <rect x="270" y="90" width="35" height="110" fill="#00E0FF" rx="4" opacity="0.8"/>
+
+    <!-- Trend line -->
+    <polyline points="37,120 87,60 137,40 187,80 237,50 287,90"
+              fill="none" stroke="#00E0FF" stroke-width="2" opacity="0.6" stroke-linejoin="round"/>
+
+    <!-- Data points -->
+    <circle cx="37" cy="120" r="4" fill="#00E0FF"/>
+    <circle cx="87" cy="60" r="4" fill="#00E0FF"/>
+    <circle cx="137" cy="40" r="4" fill="#00E0FF"/>
+    <circle cx="187" cy="80" r="4" fill="#00E0FF"/>
+    <circle cx="237" cy="50" r="4" fill="#00E0FF"/>
+    <circle cx="287" cy="90" r="4" fill="#00E0FF"/>
+  </g>
+</svg>

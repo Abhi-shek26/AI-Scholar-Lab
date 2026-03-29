@@ -1,0 +1,96 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="teamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0B0F1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e1a33;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#teamGrad)"/>
+
+  <!-- Collaborative workspace -->
+  <g>
+    <!-- Large central screen/whiteboard -->
+    <rect x="200" y="100" width="400" height="250" fill="#0f1318" stroke="#00E0FF" stroke-width="3" rx="8"/>
+
+    <!-- Screen content: Code/Ideas -->
+    <g font-family="monospace" font-size="12" fill="#00E0FF" opacity="0.7">
+      <text x="220" y="140">AI Ideas</text>
+      <text x="220" y="165">✓ Build</text>
+      <text x="220" y="185">✓ Research</text>
+      <text x="220" y="205">✓ Deploy</text>
+      <text x="400" y="165">✓ Learn</text>
+      <text x="400" y="185">✓ Collaborate</text>
+      <text x="400" y="205">✓ Innovate</text>
+    </g>
+
+    <!-- Connection lines (representing collaboration) -->
+    <g stroke="#7C3AED" stroke-width="2" opacity="0.4" fill="none">
+      <line x1="200" y1="225" x2="100" y2="320"/>
+      <line x1="600" y1="225" x2="700" y2="320"/>
+      <line x1="300" y1="350" x2="300" y2="450"/>
+      <line x1="500" y1="350" x2="500" y2="450"/>
+    </g>
+  </g>
+
+  <!-- Team members (silhouettes) -->
+  <g fill="none" stroke="#00E0FF" stroke-width="2" opacity="0.8">
+    <!-- Left person -->
+    <circle cx="100" cy="360" r="20"/>
+    <line x1="100" y1="380" x2="100" y2="430"/>
+    <line x1="100" y1="400" x2="70" y2="420"/>
+    <line x1="100" y1="400" x2="130" y2="420"/>
+    <line x1="100" y1="430" x2="80" y2="480"/>
+    <line x1="100" y1="430" x2="120" y2="480"/>
+
+    <!-- Right person -->
+    <circle cx="700" cy="360" r="20"/>
+    <line x1="700" y1="380" x2="700" y2="430"/>
+    <line x1="700" y1="400" x2="670" y2="420"/>
+    <line x1="700" y1="400" x2="730" y2="420"/>
+    <line x1="700" y1="430" x2="680" y2="480"/>
+    <line x1="700" y1="430" x2="720" y2="480"/>
+
+    <!-- Center person (slightly different) -->
+    <circle cx="400" cy="300" r="22"/>
+    <line x1="400" y1="322" x2="400" y2="380"/>
+    <line x1="400" y1="345" x2="360" y2="370"/>
+    <line x1="400" y1="345" x2="440" y2="370"/>
+    <line x1="400" y1="380" x2="375" y2="440"/>
+    <line x1="400" y1="380" x2="425" y2="440"/>
+  </g>
+
+  <!-- Badges/Skills indicators -->
+  <g>
+    <!-- Left person badge -->
+    <circle cx="100" cy="320" r="12" fill="#7C3AED" opacity="0.6" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="95" y="328" font-family="sans-serif" font-size="10" fill="white">AI</text>
+
+    <!-- Right person badge -->
+    <circle cx="700" cy="320" r="12" fill="#00E0FF" opacity="0.6" stroke="#00E0FF" stroke-width="1.5"/>
+    <text x="695" y="328" font-family="sans-serif" font-size="10" fill="white">ML</text>
+
+    <!-- Center person badge -->
+    <circle cx="430" cy="270" r="13" fill="#00E0FF" opacity="0.7" stroke="#00E0FF" stroke-width="1.5"/>
+    <text x="422" y="278" font-family="sans-serif" font-size="10" fill="white">Dev</text>
+  </g>
+
+  <!-- Floating particles (collaboration energy) -->
+  <g fill="#00E0FF" opacity="0.5">
+    <circle cx="250" cy="150" r="2"/>
+    <circle cx="550" cy="180" r="2.5"/>
+    <circle cx="150" cy="280" r="2"/>
+    <circle cx="650" cy="290" r="2"/>
+  </g>
+
+  <g fill="#7C3AED" opacity="0.4">
+    <circle cx="400" cy="200" r="3"/>
+    <circle cx="200" cy="400" r="2"/>
+    <circle cx="600" cy="420" r="2.5"/>
+  </g>
+
+  <!-- Glow effects -->
+  <circle cx="400" cy="200" r="200" fill="#00E0FF" opacity="0.06"/>
+  <circle cx="100" cy="400" r="100" fill="#7C3AED" opacity="0.05"/>
+  <circle cx="700" cy="380" r="120" fill="#7C3AED" opacity="0.05"/>
+</svg>
