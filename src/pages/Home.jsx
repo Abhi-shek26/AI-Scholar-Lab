@@ -5,12 +5,14 @@ import WhyAIScholarsLabSection from "../components/sections/WhyAIScholarsLabSect
 import GenZInnovationSection from "../components/sections/GenZInnovationSection";
 import OutcomesSection from "../components/sections/OutcomesSection";
 import WhoShouldApplySection from "../components/sections/WhoShouldApplySection";
+import ProgramHighlightsSection from "../components/sections/ProgramHighlightsSection";
 import FinalCTASection from "../components/sections/FinalCTASection";
 
 export default function Home() {
   return (
     <MainLayout>
       <HeroSection />
+      <ProgramHighlightsSection />
       <WhatIsThisSection />
       <WhyAIScholarsLabSection />
       <GenZInnovationSection />

@@ -1,6 +1,5 @@
 import MainLayout from "../layouts/MainLayout";
 import { motion } from "framer-motion";
-import { staggerContainer, staggerItem } from "../animations/scrollAnimations";
 import Button from "../components/ui/Button";
 import { Link } from "react-router-dom";
 
@@ -8,23 +7,18 @@ export default function Admissions() {
   const steps = [
     {
       num: "1",
-      title: "Application",
-      description: "Submit your application with basic info, grades, and essay.",
+      title: "Academic review",
+      description: "We evaluate academic consistency, effort, and evidence of high potential.",
     },
     {
       num: "2",
-      title: "Assessment Test",
-      description: "SAT-style test covering problem-solving and basic CS concepts.",
+      title: "Aptitude assessment",
+      description: "SAT-style test focused on analytical reasoning and structured problem solving.",
     },
     {
       num: "3",
-      title: "AI Challenge",
-      description: "Build a small AI project to demonstrate your skills and creativity.",
-    },
-    {
-      num: "4",
-      title: "Interview",
-      description: "Conversation with our team about your interests and goals.",
+      title: "Optional coding / AI evaluation",
+      description: "For students with prior experience, we offer an optional technical evaluation.",
     },
   ];
 
@@ -45,25 +39,23 @@ export default function Admissions() {
             className="mb-16"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6 text-white drop-shadow-lg">
-              Admissions
+              Admissions (Merit-Based Only)
             </h1>
             <p className="text-xl text-gray-100 max-w-3xl drop-shadow-lg">
-              We're selective. We accept 15–20 students per cohort. Here's how we evaluate applications.
+              Selection is strictly merit-driven and designed for high-potential students.
             </p>
           </motion.div>
 
-          {/* Process Steps */}
           <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="space-y-6 mb-20"
           >
+            <h2 className="text-3xl font-display font-bold text-white">Evaluation Process</h2>
             {steps.map((step, idx) => (
               <motion.div
                 key={idx}
-                variants={staggerItem}
                 className="flex gap-6 items-start"
               >
                 <div className="inline-flex items-center justify-center
@@ -81,29 +73,19 @@ export default function Admissions() {
             ))}
           </motion.div>
 
-          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="grid md:grid-cols-3 gap-8 mb-20"
+            className="glass-card p-8 rounded-2xl border border-accent/40 mb-20"
           >
-            <div className="glass-card p-8 rounded-2xl border border-white/20 text-center">
-              <div className="text-4xl font-bold text-accent mb-2">15–20</div>
-              <p className="text-gray-100">Spots per cohort</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl border border-white/20 text-center">
-              <div className="text-4xl font-bold text-secondary mb-2">&lt; 5%</div>
-              <p className="text-gray-100">Acceptance rate</p>
-            </div>
-            <div className="glass-card p-8 rounded-2xl border border-white/20 text-center">
-              <div className="text-4xl font-bold text-accent mb-2">8–9</div>
-              <p className="text-gray-100">Months program length</p>
-            </div>
+            <h3 className="text-2xl font-display font-bold text-accent mb-3">Key Highlight</h3>
+            <p className="text-lg text-gray-100">
+              All applicants undergo a FREE evaluation test (can be taken from home).
+            </p>
           </motion.div>
 
-          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,11 +94,11 @@ export default function Admissions() {
             className="text-center"
           >
             <p className="text-lg text-gray-100 mb-6">
-              Ready to apply? We review applications on a rolling basis.
+              Ready to apply for the next evaluation cycle?
             </p>
             <Link to="/apply">
               <Button variant="primary" size="lg">
-                Start Your Application
+                Apply Now
               </Button>
             </Link>
           </motion.div>

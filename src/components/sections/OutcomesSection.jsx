@@ -28,7 +28,7 @@ export default function OutcomesSection() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-white dark:bg-background transition-colors duration-300">
+    <section className="py-10 md:py-16 bg-white dark:bg-background transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Image */}
         <motion.div

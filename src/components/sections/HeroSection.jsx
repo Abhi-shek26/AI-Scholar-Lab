@@ -34,7 +34,7 @@ export default function HeroSection() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6
               text-gray-90 dark:text-white leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]"
           >
-            Y-Combinator for Future AI Builders
+            AI Laboratory for Future Innovators
           </motion.h1>
 
           {/* Subheadline */}
@@ -46,7 +46,7 @@ export default function HeroSection() {
             className="text-base sm:text-lg md:text-xl text-white/90 dark:text-white/90
               max-w-3xl mx-auto mb-8 sm:mb-12 transition-colors duration-300"
           >
-            Build AI Products. Publish Research. Protect Your Ideas. Stand Out for Top Universities.
+            Build real AI systems, publish meaningful work, and graduate with portfolio-ready outcomes.
           </motion.p>
 
           {/* CTA Buttons */}

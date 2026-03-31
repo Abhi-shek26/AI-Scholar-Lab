@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function GenZInnovationSection() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-r from-white dark:from-background
+    <section className="py-10 md:py-16 bg-gradient-to-r from-white dark:from-background
       via-secondary/5 dark:via-secondary/5 to-white dark:to-background flex items-center
       justify-center min-h-96 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

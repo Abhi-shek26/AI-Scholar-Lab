@@ -9,6 +9,8 @@ import ResearchProducts from "./pages/ResearchProducts";
 import Admissions from "./pages/Admissions";
 import IPPolicy from "./pages/IPPolicy";
 import Apply from "./pages/Apply";
+import ProgramOverview from "./pages/ProgramOverview";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route path="/research-products" element={<ResearchProducts />} />
         <Route path="/admissions" element={<Admissions />} />
         <Route path="/ip-policy" element={<IPPolicy />} />
+        <Route path="/program-overview" element={<ProgramOverview />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -1,28 +1,30 @@
 import { Link } from "react-router-dom";
+import { APPLY_EMAIL, CONTACT_EMAIL } from "../../config/contact";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = [
     {
-      category: "Program",
+      category: "Explore",
       links: [
-        { label: "About", path: "/program" },
-        { label: "Curriculum", path: "/curriculum" },
-        { label: "Research", path: "/research-products" },
+        { label: "Home", path: "/" },
+        { label: "Program", path: "/program" },
+        { label: "Research & Products", path: "/research-products" },
       ],
     },
     {
       category: "Admissions",
       links: [
-        { label: "Apply", path: "/apply" },
-        { label: "Requirements", path: "/admissions" },
+        { label: "Admissions", path: "/admissions" },
+        { label: "Program Overview", path: "/program-overview" },
       ],
     },
     {
-      category: "Legal",
+      category: "Policy",
       links: [
-        { label: "IP Policy", path: "/ip-policy" },
+        { label: "IP & Collaboration", path: "/ip-policy" },
+        { label: "Contact", path: "/contact" },
       ],
     },
   ];
@@ -33,13 +35,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-bold font-display mb-2">
-              <span className="bg-gradient-to-r from-accent to-cyan-400 bg-clip-text text-transparent">
-                AI Scholars Lab
+            <div className="mb-3 flex items-center gap-3">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-accent/60 bg-white/80 text-xs font-bold text-accent dark:bg-slate-900/60">
+                AI
               </span>
-            </h3>
+              <h3 className="text-lg font-bold font-display">AI Scholars Lab</h3>
+            </div>
             <p className="text-sm text-gray-400">
-              Building the next generation of AI innovators.
+              AI Laboratory for Future Innovators.
+            </p>
+            <p className="mt-3 text-sm text-gray-400">
+              Applications: <a href={`mailto:${APPLY_EMAIL}`} className="hover:text-accent transition-colors">{APPLY_EMAIL}</a>
+            </p>
+            <p className="text-sm text-gray-400">
+              General inquiries: <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-accent transition-colors">{CONTACT_EMAIL}</a>
             </p>
           </div>
 

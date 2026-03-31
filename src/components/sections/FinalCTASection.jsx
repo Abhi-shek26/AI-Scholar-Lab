@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 
 export default function FinalCTASection() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-r from-secondary/10 dark:from-secondary/10
+    <section className="py-10 md:py-16 bg-gradient-to-r from-secondary/10 dark:from-secondary/10
       via-white dark:via-background to-accent/10 dark:to-accent/10 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div

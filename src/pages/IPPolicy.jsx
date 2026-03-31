@@ -2,16 +2,15 @@ import MainLayout from "../layouts/MainLayout";
 import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 import { Link } from "react-router-dom";
-import { FiCheck } from "react-icons/fi";
 
 export default function IPPolicy() {
-  const comparison = [
-    { feature: "IP Ownership", typical: "Program or University", ours: "You (100%)" },
-    { feature: "Equity/Royalties", typical: "Program takes cut", ours: "You keep everything" },
-    { feature: "Legal Protection", typical: "Generic terms", ours: "Custom legal docs" },
-    { feature: "Investor Access", typical: "Limited", ours: "Controlled access" },
-    { feature: "Exit Rights", typical: "None", ours: "Full control" },
+  const collaborationPoints = [
+    "Projects are built collaboratively.",
+    "Contributors (students, mentors, platform) may be part of founding teams.",
+    "Contributors (students, mentors, platform) may be part of co-authored research.",
   ];
+
+  const agreementPoints = ["Ownership", "Contribution", "Publication rights"];
 
   return (
     <MainLayout>
@@ -30,14 +29,13 @@ export default function IPPolicy() {
             className="mb-16"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6 text-white drop-shadow-lg">
-              IP & Venture Policy
+              Intellectual Property & Collaboration
             </h1>
             <p className="text-xl text-gray-100 max-w-3xl drop-shadow-lg">
-              Your ideas are yours. We've designed our policy to protect you and your intellectual property.
+              Our framework supports collaborative building with clear agreements and transparent attribution.
             </p>
           </motion.div>
 
-          {/* Key Principles */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -45,44 +43,14 @@ export default function IPPolicy() {
             transition={{ duration: 0.8 }}
             className="glass-card p-8 rounded-2xl border border-accent/30 mb-16"
           >
-            <h2 className="text-2xl font-display font-bold mb-8 text-accent">Key Principles</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="font-semibold text-white mb-2 flex items-center gap-2">
-                  <FiCheck className="text-accent" /> Student Ownership
-                </h3>
-                <p className="text-gray-100">
-                  You own 100% of the IP created during the program. No equity stakes for us.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-2 flex items-center gap-2">
-                  <FiCheck className="text-accent" /> Legal Clarity
-                </h3>
-                <p className="text-gray-100">
-                  Clear, founder-friendly legal documents. No surprises or hidden clauses.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-2 flex items-center gap-2">
-                  <FiCheck className="text-accent" /> Controlled Exposure
-                </h3>
-                <p className="text-gray-100">
-                  We connect you with investors and partners only when you choose.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-2 flex items-center gap-2">
-                  <FiCheck className="text-accent" /> Venture Support
-                </h3>
-                <p className="text-gray-100">
-                  Access to investor networks, legal advisors, and business mentorship.
-                </p>
-              </div>
-            </div>
+            <h2 className="text-2xl font-display font-bold mb-6 text-accent">Collaboration Principles</h2>
+            <ul className="space-y-3 text-gray-100">
+              {collaborationPoints.map((point) => (
+                <li key={point}>- {point}</li>
+              ))}
+            </ul>
           </motion.div>
 
-          {/* Comparison Table */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -90,30 +58,20 @@ export default function IPPolicy() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="glass-card p-8 rounded-2xl border border-accent/30 mb-16"
           >
-            <h2 className="text-2xl font-display font-bold mb-6 text-white">How We Compare</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-max md:min-w-full">
-                <thead>
-                  <tr className="border-b border-gray-200 dark:border-white/10">
-                    <th className="text-left py-3 px-2 sm:py-4 sm:px-4 text-xs sm:text-sm text-white">Feature</th>
-                    <th className="text-left py-3 px-2 sm:py-4 sm:px-4 text-xs sm:text-sm text-white">Most Programs</th>
-                    <th className="text-left py-3 px-2 sm:py-4 sm:px-4 text-xs sm:text-sm text-accent font-semibold">AI Scholars Lab</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparison.map((row, idx) => (
-                    <tr key={idx} className="border-b border-gray-200 dark:border-white/5">
-                      <td className="py-3 px-2 sm:py-4 sm:px-4 font-semibold text-xs sm:text-sm text-white">{row.feature}</td>
-                      <td className="py-3 px-2 sm:py-4 sm:px-4 text-xs sm:text-sm text-white">{row.typical}</td>
-                      <td className="py-3 px-2 sm:py-4 sm:px-4 text-xs sm:text-sm text-accent font-semibold">{row.ours}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <h2 className="text-2xl font-display font-bold mb-6 text-white">Structured Agreements Define</h2>
+            <ul className="grid sm:grid-cols-3 gap-4 text-gray-100">
+              {agreementPoints.map((point) => (
+                <li key={point} className="rounded-lg border border-white/20 px-4 py-3 text-center">
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-8 text-lg font-semibold text-accent">
+              We operate with full transparency — all contributors are recognized and protected through structured agreements.
+            </p>
           </motion.div>
 
-          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,11 +80,11 @@ export default function IPPolicy() {
             className="text-center"
           >
             <p className="text-lg text-gray-100 mb-6">
-              Have questions about our IP policy? We're happy to discuss.
+              Questions about collaboration or publication policy?
             </p>
-            <Link to="/apply">
+            <Link to="/contact">
               <Button variant="primary" size="lg">
-                Apply & Learn More
+                Contact Us
               </Button>
             </Link>
           </motion.div>

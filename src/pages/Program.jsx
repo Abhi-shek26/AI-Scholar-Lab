@@ -2,7 +2,11 @@ import MainLayout from "../layouts/MainLayout";
 import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 import { Link } from "react-router-dom";
-import { FaRocket, FaChartBar } from "react-icons/fa6";
+
+function SelectionWeekLabel() {
+  const day = new Date().getDate();
+  return day <= 15 ? "Mid of the Month" : "Last Week of the Month";
+}
 
 export default function Program() {
   return (
@@ -24,46 +28,11 @@ export default function Program() {
               The Program
             </h1>
             <p className="text-xl text-gray-100 mb-12 max-w-3xl drop-shadow-lg">
-              An 8-9 month intensive fellowship combining research, product building, and mentorship from industry leaders.
+              Build with clear phases, structured mentorship, and college-ready outcomes.
             </p>
           </motion.div>
 
-          {/* Program Overview */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid md:grid-cols-2 gap-12 mb-20"
-          >
-            <div className="glass-card p-8 rounded-2xl border border-white/20">
-              <h2 className="text-2xl font-display font-bold mb-4 text-accent">
-                Semester 1: Foundations
-              </h2>
-              <ul className="space-y-3 text-white">
-                <li>✓ LLMs & Transformers fundamentals</li>
-                <li>✓ Prompt engineering & fine-tuning</li>
-                <li>✓ Retrieval Augmented Generation (RAG)</li>
-                <li>✓ AI agents & autonomous systems</li>
-                <li>✓ Ethics & Safety in AI</li>
-              </ul>
-            </div>
-
-            <div className="glass-card p-8 rounded-2xl border border-white/20">
-              <h2 className="text-2xl font-display font-bold mb-4 text-accent">
-                Semester 2: Build & Research
-              </h2>
-              <ul className="space-y-3 text-white">
-                <li>✓ Choose your track (Product or Research)</li>
-                <li>✓ Work on real projects with mentors</li>
-                <li>✓ Write research papers or launch products</li>
-                <li>✓ Network with industry professionals</li>
-                <li>✓ Prepare for next steps</li>
-              </ul>
-            </div>
-          </motion.div>
-
-          {/* Tracks */}
+          {/* Program Structure */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -71,35 +40,79 @@ export default function Program() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-display font-bold mb-8 text-white">Choose Your Track</h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="glass-card p-8 rounded-2xl border border-accent/30 hover:border-accent">
-                <h3 className="text-2xl font-display font-bold mb-4 text-accent">🚀 Product Track</h3>
-                <p className="text-white mb-4">
-                  Build an AI-powered product from idea to launch. Focus on user research, product-market fit, and deployment.
-                </p>
+            <div className="mb-8 flex items-center gap-3">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-accent/50 bg-accent/15 text-sm font-bold text-accent">
+                01
+              </span>
+              <h2 className="text-3xl font-display font-bold text-white">Program Structure</h2>
+            </div>
+            <div className="grid gap-8 md:grid-cols-3">
+              <article className="glass-card p-8 rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/5 hover:border-accent/40 transition-colors">
+                <h3 className="text-xl font-display font-bold mb-4 text-accent">
+                  Phase 1 - Foundations (2 Weeks)
+                </h3>
                 <ul className="space-y-2 text-sm text-gray-100">
-                  <li>• User validation & research</li>
-                  <li>• MVP development</li>
-                  <li>• Launch & iterate</li>
-                  <li>• Consider venture opportunities</li>
+                  <li>• LLM fundamentals</li>
+                  <li>• Prompt engineering</li>
+                  <li>• Evaluation basics</li>
                 </ul>
+              </article>
+
+              <article className="glass-card p-8 rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/5 hover:border-accent/40 transition-colors">
+                <h3 className="text-xl font-display font-bold mb-4 text-accent">
+                  Phase 2 - Research / Product Build (6-8 Weeks)
+                </h3>
+                <ul className="space-y-2 text-sm text-gray-100">
+                  <li>• Choose track</li>
+                  <li>• Build product OR research paper</li>
+                  <li>• Weekly mentor reviews</li>
+                </ul>
+              </article>
+
+              <article className="glass-card p-8 rounded-2xl border border-white/20 bg-gradient-to-b from-white/15 to-white/5 hover:border-accent/40 transition-colors">
+                <h3 className="text-xl font-display font-bold mb-4 text-accent">
+                  Phase 3 - Publication / Showcase
+                </h3>
+                <ul className="space-y-2 text-sm text-gray-100">
+                  <li>• Research paper OR product demo</li>
+                  <li>• Portfolio + GitHub</li>
+                  <li>• College-ready output</li>
+                </ul>
+              </article>
+            </div>
+          </motion.div>
+
+          {/* Summer Program */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-20"
+          >
+            <div className="glass-card p-8 rounded-2xl border border-accent/30 bg-gradient-to-br from-accent/10 via-white/5 to-secondary/10">
+              <div className="mb-6 rounded-lg border border-accent/50 bg-accent/15 px-4 py-3 backdrop-blur-sm">
+                <p className="font-semibold text-accent">
+                  Next Selection Week: {SelectionWeekLabel()} (changes every 15 days)
+                </p>
               </div>
 
-              <div className="glass-card p-8 rounded-2xl border border-secondary/30 hover:border-secondary">
-                <h3 className="text-2xl font-display font-bold mb-4 text-secondary flex items-center gap-3">
-                  <FaChartBar size={24} /> Research Track
-                </h3>
-                <p className="text-white mb-4">
-                  Conduct original research in AI. Work with PhD researchers to publish findings in top conferences.
-                </p>
-                <ul className="space-y-2 text-sm text-gray-100">
-                  <li>• Research proposal development</li>
-                  <li>• Experimental methodology</li>
-                  <li>• Paper writing & revision</li>
-                  <li>• Conference submission</li>
-                </ul>
+              <div className="mb-4 flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-accent/50 bg-accent/15 text-sm font-bold text-accent">
+                  02
+                </span>
+                <h2 className="text-3xl font-display font-bold text-white">Summer AI Scholars Program</h2>
+              </div>
+              <div className="space-y-3 text-gray-100">
+                <p className="rounded-lg border border-white/15 bg-white/10 px-4 py-3">Duration: 8-10 weeks</p>
+                <p className="rounded-lg border border-white/15 bg-white/10 px-4 py-3">Mode: Hybrid (Online + Guided)</p>
+                <div className="rounded-lg border border-white/15 bg-white/10 px-4 py-3">
+                  <p className="mb-2">Output:</p>
+                  <ul className="space-y-1 text-sm">
+                    <li>• 1 AI product OR</li>
+                    <li>• 1 research paper</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </motion.div>

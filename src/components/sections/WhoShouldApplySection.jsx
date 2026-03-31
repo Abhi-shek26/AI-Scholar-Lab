@@ -18,7 +18,7 @@ export default function WhoShouldApplySection() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-b from-white dark:from-background
+    <section className="py-10 md:py-16 bg-gradient-to-b from-white dark:from-background
       to-secondary/5 dark:to-secondary/5 transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}

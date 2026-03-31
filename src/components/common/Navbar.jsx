@@ -8,10 +8,10 @@ export default function Navbar() {
   const navLinks = [
     { label: "Home", path: "/" },
     { label: "Program", path: "/program" },
-    { label: "Curriculum", path: "/curriculum" },
-    { label: "Research", path: "/research-products" },
     { label: "Admissions", path: "/admissions" },
-    { label: "IP Policy", path: "/ip-policy" },
+    { label: "Research & Products", path: "/research-products" },
+    { label: "Program Overview", path: "/program-overview" },
+    { label: "Contact", path: "/contact" },
   ];
 
   return (
@@ -19,8 +19,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold font-display">
-            <span className="bg-gradient-to-r from-accent to-cyan-400 bg-clip-text text-transparent">
+          <Link to="/" className="flex items-center gap-3">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-accent/60 bg-white/80 text-xs font-bold text-accent dark:bg-slate-900/60">
+              AI
+            </span>
+            <span className="text-xl font-bold font-display text-gray-900 dark:text-white">
               AI Scholars Lab
             </span>
           </Link>
@@ -40,10 +43,10 @@ export default function Navbar() {
             {/* Apply Button */}
             <Link
               to="/apply"
-              className="ml-4 px-6 py-2 bg-gradient-to-r from-accent to-cyan-400 text-black
-                font-semibold rounded-lg hover:shadow-glow transition-all hover:scale-105"
+              className="ml-4 px-6 py-2 bg-accent text-black
+                font-semibold rounded-lg hover:brightness-110 transition-all"
             >
-              Apply
+              Apply Now
             </Link>
           </div>
 
@@ -84,11 +87,11 @@ export default function Navbar() {
             ))}
             <Link
               to="/apply"
-              className="block m-4 px-6 py-2 bg-gradient-to-r from-accent to-cyan-400 text-black
+              className="block m-4 px-6 py-2 bg-accent text-black
                 font-semibold rounded-lg text-center"
               onClick={() => setIsOpen(false)}
             >
-              Apply
+              Apply Now
             </Link>
           </motion.div>
         )}

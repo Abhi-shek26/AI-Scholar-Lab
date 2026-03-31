@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { motion } from "framer-motion";
-import Button from "../components/ui/Button";
+import { APPLY_EMAIL } from "../config/contact";
 
 export default function Apply() {
   const [formData, setFormData] = useState({
@@ -15,7 +15,6 @@ export default function Apply() {
     email: "",
   });
 
-  const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -53,23 +52,19 @@ export default function Apply() {
 
     if (!validateForm()) return;
 
-    // Show success message
-    setSubmitted(true);
+    const subject = encodeURIComponent(`Application: ${formData.fullName}`);
+    const body = encodeURIComponent(
+      `Full Name: ${formData.fullName}\n` +
+      `Email: ${formData.email}\n` +
+      `Grade: ${formData.grade}\n` +
+      `School: ${formData.school}\n` +
+      `GPA: ${formData.gpa}\n` +
+      `SAT Score: ${formData.satScore || "N/A"}\n\n` +
+      `Statement of Purpose:\n${formData.statementOfPurpose}\n\n` +
+      `Project Links:\n${formData.projectLinks || "N/A"}`
+    );
 
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        fullName: "",
-        grade: "",
-        school: "",
-        gpa: "",
-        satScore: "",
-        statementOfPurpose: "",
-        projectLinks: "",
-        email: "",
-      });
-      setSubmitted(false);
-    }, 3000);
+    window.location.href = `mailto:${APPLY_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -95,24 +90,6 @@ export default function Apply() {
               Limited spots available. Apply by the deadline for full consideration.
             </p>
           </motion.div>
-
-          {submitted && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="mb-8 p-6 bg-emerald-500/20 border border-emerald-400 rounded-lg text-center"
-              role="status"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <h2 className="text-xl font-semibold text-emerald-400 mb-2">
-                ✓ Application Submitted
-              </h2>
-              <p className="text-emerald-300">
-                Thanks for applying! We'll review your application and contact you soon.
-              </p>
-            </motion.div>
-          )}
 
           <motion.form
             initial={{ opacity: 0, y: 30 }}
@@ -163,7 +140,7 @@ export default function Apply() {
                   className="w-full px-4 py-3 bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-lg
                     text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-500 focus:outline-none focus:border-accent
                     transition-colors"
-                  placeholder="john@example.com"
+                  placeholder="Your email address"
                 />
                 {errors.email && (
                   <p id="email-error" className="text-red-400 text-xs mt-1" role="alert">{errors.email}</p>
