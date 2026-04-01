@@ -158,12 +158,12 @@ export default function Apply() {
     
     // Section 3 validation
     if (!formData.statementOfPurpose.trim()) newErrors.statementOfPurpose = "Statement of purpose is required";
-    if (wordCount(formData.statementOfPurpose) < 150) newErrors.statementOfPurpose = "Statement must be at least 150 words";
+    if (wordCount(formData.statementOfPurpose) < 40) newErrors.statementOfPurpose = "Statement must be at least 40 words";
     if (wordCount(formData.statementOfPurpose) > 500) newErrors.statementOfPurpose = "Statement must not exceed 500 words";
     
     // Section 4 validation
     if (!formData.ideaDescription.trim()) newErrors.ideaDescription = "Idea description is required";
-    if (wordCount(formData.ideaDescription) < 100) newErrors.ideaDescription = "Idea description must be at least 100 words";
+    if (wordCount(formData.ideaDescription) < 20) newErrors.ideaDescription = "Idea description must be at least 20 words";
     if (wordCount(formData.ideaDescription) > 300) newErrors.ideaDescription = "Idea description must not exceed 300 words";
     
     // Section 8 validation
@@ -476,7 +476,7 @@ export default function Apply() {
               
               <div>
                 <label htmlFor="statementOfPurpose" className="block text-sm font-semibold mb-2 text-white">
-                  Your Statement <span className="text-red-400">*</span> <span className="text-xs font-normal text-gray-400">(150–500 words)</span>
+                  Your Statement <span className="text-red-400">*</span> <span className="text-xs font-normal text-gray-400">(40–500 words)</span>
                 </label>
                 <textarea
                   id="statementOfPurpose"
@@ -503,7 +503,7 @@ export default function Apply() {
               
               <div>
                 <label htmlFor="ideaDescription" className="block text-sm font-semibold mb-2 text-white">
-                  Your Idea <span className="text-red-400">*</span> <span className="text-xs font-normal text-gray-400">(100–300 words)</span>
+                  Your Idea <span className="text-red-400">*</span> <span className="text-xs font-normal text-gray-400">(20–300 words)</span>
                 </label>
                 <textarea
                   id="ideaDescription"
@@ -514,6 +514,10 @@ export default function Apply() {
                   rows="5"
                   placeholder="I would build an AI system that..."
                 />
+                <div className="flex justify-between items-center mt-2">
+                  <p className="text-xs text-gray-400">Word count: {wordCount(formData.statementOfPurpose)}</p>
+                  {errors.statementOfPurpose && <p className="text-red-300 text-xs">{errors.statementOfPurpose}</p>}
+                </div>
               </div>
             </div>
 
