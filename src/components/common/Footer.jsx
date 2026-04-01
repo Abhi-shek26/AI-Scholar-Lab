@@ -37,18 +37,21 @@ export default function Footer() {
           <div>
             <div className="mb-3 flex items-center gap-3">
               <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-accent/60 bg-white/80 text-xs font-bold text-accent dark:bg-slate-900/60">
-                AI
+                AISL
               </span>
               <h3 className="text-lg font-bold font-display">AI Scholars Lab</h3>
             </div>
             <p className="text-sm text-gray-400">
               AI Laboratory for Future Innovators.
             </p>
+            <div>
             <p className="mt-3 text-sm text-gray-400">
-              Applications: <a href={`mailto:${APPLY_EMAIL}`} className="hover:text-accent transition-colors">{APPLY_EMAIL}</a>
+              Apply:     <a href={`mailto:${APPLY_EMAIL}`} className="hover:text-accent transition-colors">{APPLY_EMAIL}</a>
             </p>
-            <p className="text-sm text-gray-400">
-              General inquiries: <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-accent transition-colors">{CONTACT_EMAIL}</a>
+            </div>
+            <span></span>
+            <p className="text-sm py-4  text-gray-400">
+              Queries: <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-accent transition-colors">{CONTACT_EMAIL}</a>
             </p>
           </div>
 

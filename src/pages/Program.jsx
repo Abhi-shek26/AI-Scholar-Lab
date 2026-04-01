@@ -3,9 +3,45 @@ import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 import { Link } from "react-router-dom";
 
+function getWindowDetails(date, windowType) {
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const monthShort = new Intl.DateTimeFormat("en-US", { month: "short" }).format(date);
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  if (windowType === "mid") {
+    return {
+      startDay: 8,
+      endDay: 15,
+      label: `Mid of the Month (${monthShort} 8-15)`,
+    };
+  }
+
+  const startDay = daysInMonth - 6;
+  return {
+    startDay,
+    endDay: daysInMonth,
+    label: `Last Week of the Month (${monthShort} ${startDay}-${daysInMonth})`,
+  };
+}
+
 function SelectionWeekLabel() {
-  const day = new Date().getDate();
-  return day <= 15 ? "Mid of the Month" : "Last Week of the Month";
+  const now = new Date();
+  const today = now.getDate();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+
+  const mid = getWindowDetails(now, "mid");
+  const last = getWindowDetails(now, "last");
+
+  if (today >= mid.startDay && today <= mid.endDay) return mid.label;
+  if (today >= last.startDay && today <= last.endDay) return last.label;
+
+  if (today < mid.startDay) return mid.label;
+  if (today < last.startDay) return last.label;
+
+  const nextMonthDate = new Date(year, month + 1, 1);
+  return getWindowDetails(nextMonthDate, "mid").label;
 }
 
 export default function Program() {
@@ -74,7 +110,7 @@ export default function Program() {
                   Phase 3 - Publication / Showcase
                 </h3>
                 <ul className="space-y-2 text-sm text-gray-100">
-                  <li>• Research paper OR product demo</li>
+                  <li>• Research paper / product demo</li>
                   <li>• Portfolio + GitHub</li>
                   <li>• College-ready output</li>
                 </ul>
@@ -93,7 +129,7 @@ export default function Program() {
             <div className="glass-card p-8 rounded-2xl border border-accent/30 bg-gradient-to-br from-accent/10 via-white/5 to-secondary/10">
               <div className="mb-6 rounded-lg border border-accent/50 bg-accent/15 px-4 py-3 backdrop-blur-sm">
                 <p className="font-semibold text-accent">
-                  Next Selection Week: {SelectionWeekLabel()} (changes every 15 days)
+                  Next Selection Week: {SelectionWeekLabel()}
                 </p>
               </div>
 

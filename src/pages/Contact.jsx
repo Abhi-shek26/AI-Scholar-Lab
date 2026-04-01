@@ -1,7 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { motion } from "framer-motion";
 import { CONTACT_EMAIL, DOMAIN } from "../config/contact";
+import emailjs from "emailjs-com";
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,6 +16,16 @@ export default function Contact() {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
+  const [submitStatus, setSubmitStatus] = useState("idle");
+
+  // Initialize EmailJS
+  useEffect(() => {
+    if (EMAILJS_PUBLIC_KEY) {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,12 +49,58 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
 
-    const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
+    setSubmitMessage("");
+    setSubmitStatus("idle");
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    // Fallback for local preview when EmailJS credentials are not configured.
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Get current time in readable format
+    const currentTime = new Date().toLocaleString("en-US", {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZoneName: "short",
+    });
+
+    // Send via EmailJS
+    emailjs
+      .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: CONTACT_EMAIL,
+        name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        time: currentTime,
+      })
+      .then(() => {
+        setSubmitStatus("success");
+        setSubmitMessage("Message submitted successfully. Our team will get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        setSubmitStatus("error");
+        setSubmitMessage(
+          `Unable to submit right now. ${error?.text || error?.message || "Please try again shortly."}`
+        );
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
@@ -75,6 +136,24 @@ export default function Contact() {
             onSubmit={handleSubmit}
             className="glass-card p-8 rounded-2xl border border-white/20"
           >
+            {!EMAILJS_PUBLIC_KEY && (
+              <p className="mb-5 text-xs text-yellow-300">
+                EmailJS credentials missing. Submit will open your email app until VITE_EMAILJS_* variables are configured.
+              </p>
+            )}
+
+            {submitStatus === "success" && (
+              <p className="mb-5 rounded-lg border border-green-400/50 bg-green-500/15 px-4 py-3 text-sm text-green-200">
+                {submitMessage}
+              </p>
+            )}
+
+            {submitStatus === "error" && (
+              <p className="mb-5 rounded-lg border border-red-400/50 bg-red-500/15 px-4 py-3 text-sm text-red-200">
+                {submitMessage}
+              </p>
+            )}
+
             <div className="space-y-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold mb-2 text-white">
@@ -126,9 +205,10 @@ export default function Contact() {
 
             <button
               type="submit"
+              disabled={isSubmitting}
               className="w-full mt-8 px-6 py-3 rounded-lg bg-accent text-black font-semibold hover:brightness-110 transition-all"
             >
-              Send to contact@aischolarslab.org
+              {isSubmitting ? "Submitting..." : "Send to contact@aischolarslab.org"}
             </button>
           </motion.form>
         </div>

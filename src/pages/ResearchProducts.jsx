@@ -80,7 +80,7 @@ export default function ResearchProducts() {
                   <span className={`text-xs font-semibold px-3 py-1 rounded-full ${
                     project.type === "Product"
                       ? "bg-accent/20 text-accent"
-                      : "bg-secondary/20 text-secondary"
+                      : "bg-red-500/20 text-red-400"
                   }`}>
                     {project.type}
                   </span>

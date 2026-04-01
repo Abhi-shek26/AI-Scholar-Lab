@@ -10,6 +10,7 @@ export default function Navbar() {
     { label: "Program", path: "/program" },
     { label: "Admissions", path: "/admissions" },
     { label: "Research & Products", path: "/research-products" },
+    { label: "Core Team", path: "/core-team" },
     { label: "Program Overview", path: "/program-overview" },
     { label: "Contact", path: "/contact" },
   ];
@@ -21,7 +22,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-accent/60 bg-white/80 text-xs font-bold text-accent dark:bg-slate-900/60">
-              AI
+              AISL
             </span>
             <span className="text-xl font-bold font-display text-gray-900 dark:text-white">
               AI Scholars Lab

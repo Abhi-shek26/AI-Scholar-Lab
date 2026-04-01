@@ -10,6 +10,7 @@ import Admissions from "./pages/Admissions";
 import IPPolicy from "./pages/IPPolicy";
 import Apply from "./pages/Apply";
 import ProgramOverview from "./pages/ProgramOverview";
+import CoreTeam from "./pages/CoreTeam";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/admissions" element={<Admissions />} />
         <Route path="/ip-policy" element={<IPPolicy />} />
         <Route path="/program-overview" element={<ProgramOverview />} />
+        <Route path="/core-team" element={<CoreTeam />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/apply" element={<Apply />} />
         <Route path="*" element={<NotFound />} />
