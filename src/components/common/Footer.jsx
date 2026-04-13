@@ -36,10 +36,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-3 flex items-center gap-3">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-accent/60 bg-white/80 text-xs font-bold text-accent dark:bg-slate-900/60">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-accent/60 bg-white/80 text-sm font-bold text-accent dark:bg-slate-900/60">
                 AISL
               </span>
-              <h3 className="text-lg font-bold font-display">AI Scholars Lab</h3>
+              <h3 className="text-[1.65rem] font-bold font-display">AI Scholars Lab</h3>
             </div>
             <p className="text-sm text-gray-400">
               AI Laboratory for Future Innovators.

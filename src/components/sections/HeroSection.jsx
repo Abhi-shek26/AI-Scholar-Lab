@@ -22,7 +22,7 @@ export default function HeroSection() {
             className="mb-6 inline-block px-4 py-2 bg-accent/20 border border-accent/55 rounded-full transition-colors duration-300"
           >
             <span className="text-sm font-semibold text-cyan-700 dark:text-accent">
-              Elite High School AI Fellowship
+              Elite AI Fellowship
             </span>
           </motion.div>
 

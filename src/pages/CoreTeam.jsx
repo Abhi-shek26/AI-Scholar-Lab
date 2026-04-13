@@ -1,5 +1,7 @@
 import MainLayout from "../layouts/MainLayout";
 import { motion } from "framer-motion";
+import { FaUniversity, FaRocket } from "react-icons/fa";
+import { FiAward, FiBriefcase } from "react-icons/fi";
 
 export default function CoreTeam() {
   const containerVariants = {
@@ -59,7 +61,7 @@ export default function CoreTeam() {
               <h2 className="text-3xl font-bold text-white mb-6">Academic Background</h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="text-2xl text-accent mt-1">🎓</div>
+                  <FiAward className="text-2xl text-accent mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Doctorates & Researchers
@@ -71,7 +73,7 @@ export default function CoreTeam() {
                 </div>
 
                 <div className="flex items-start gap-4 pt-4">
-                  <div className="text-2xl text-accent mt-1">🏫</div>
+                  <FaUniversity className="text-2xl text-accent mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Top-Tier Educational Institutions
@@ -94,7 +96,7 @@ export default function CoreTeam() {
               <h2 className="text-3xl font-bold text-white mb-6">Industry Experience</h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="text-2xl text-accent mt-1">🏢</div>
+                  <FiBriefcase className="text-2xl text-accent mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Enterprise & Innovation Leaders
@@ -113,7 +115,7 @@ export default function CoreTeam() {
                 </div>
 
                 <div className="flex items-start gap-4 pt-4">
-                  <div className="text-2xl text-accent mt-1">🚀</div>
+                  <FaRocket className="text-2xl text-accent mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-2">
                       Research & Product Development

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const navLinks = [
     { label: "Home", path: "/" },
@@ -15,16 +16,20 @@ export default function Navbar() {
     { label: "Contact", path: "/contact" },
   ];
 
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-accent/60 bg-white/80 text-xs font-bold text-accent dark:bg-slate-900/60">
+            <span className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-accent/60 bg-white/80 text-sm font-bold text-accent dark:bg-slate-900/60">
               AISL
             </span>
-            <span className="text-xl font-bold font-display text-gray-900 dark:text-white">
+            <span className="text-[1.65rem] font-bold font-display text-gray-900 dark:text-white leading-none">
               AI Scholars Lab
             </span>
           </Link>
@@ -35,7 +40,11 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-accent transition-colors"
+                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  isActive(link.path)
+                    ? "text-accent bg-accent/10 border border-accent/30"
+                    : "text-gray-300 hover:text-accent"
+                }`}
               >
                 {link.label}
               </Link>
@@ -80,7 +89,11 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className="block px-4 py-2 text-gray-300 hover:text-accent transition-colors"
+                className={`block px-4 py-2 rounded-md transition-colors ${
+                  isActive(link.path)
+                    ? "text-accent bg-accent/10 border-l-2 border-accent"
+                    : "text-gray-300 hover:text-accent"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
