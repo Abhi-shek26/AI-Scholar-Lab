@@ -46,7 +46,7 @@ export default function HeroSection() {
             className="text-base sm:text-lg md:text-xl text-white/90 dark:text-white/90
               max-w-3xl mx-auto mb-8 sm:mb-12 transition-colors duration-300"
           >
-            Build real AI systems, publish meaningful work, and graduate with portfolio-ready outcomes.
+            Build real AI systems, publish meaningful work, and graduate with portfolio ready outcomes.
           </motion.p>
 
           {/* CTA Buttons */}

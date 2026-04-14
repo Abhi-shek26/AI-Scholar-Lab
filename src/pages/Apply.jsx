@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 
 const APPS_SCRIPT_URL = import.meta.env.VITE_APPS_SCRIPT_URL;
 
+function getDefaultTimezone() {
+  return "United States (America/New_York - ET)";
+}
+
 function CustomSelect({ id, name, value, onChange, options, placeholder }) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
@@ -86,7 +90,7 @@ export default function Apply() {
     email: "",
     currentLevel: "",
     schoolName: "",
-    countryTimezone: "",
+    countryTimezone: getDefaultTimezone(),
     
     // Section 2: Academic & Capability
     gpa: "",
@@ -232,7 +236,7 @@ export default function Apply() {
         email: "",
         currentLevel: "",
         schoolName: "",
-        countryTimezone: "",
+        countryTimezone: getDefaultTimezone(),
         gpa: "",
         standardizedScores: "",
         codingExperience: "",

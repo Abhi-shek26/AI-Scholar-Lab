@@ -8,18 +8,18 @@ export default function ResearchProducts() {
   const projects = [
     {
       type: "Product",
-      title: "AI Tutor",
-      description: "Adaptive learning platform using LLMs to personalize education.",
+      title: "Digital Employee",
+      description: "Agentic workflow system that performs repeatable business tasks end-to-end.",
     },
     {
       type: "Product",
-      title: "Research Assistant",
-      description: "Tool to help researchers quickly synthesize papers and find insights.",
+      title: "AI Research Assistant",
+      description: "Retrieval-augmented assistant that synthesizes papers, compares evidence, and cites sources.",
     },
     {
       type: "Product",
-      title: "Code Generator",
-      description: "AI system that generates production-grade code from specifications.",
+      title: "AI SaaS Prototype",
+      description: "Production-style AI application with authentication, observability, and deployable endpoints.",
     },
     {
       type: "Research",
@@ -29,12 +29,12 @@ export default function ResearchProducts() {
     {
       type: "Research",
       title: "LLM Evaluation",
-      description: "New frameworks for comprehensive evaluation of language models.",
+      description: "Benchmarking framework to measure accuracy, consistency, and failure modes across models.",
     },
     {
       type: "Research",
-      title: "Agent Systems",
-      description: "Research on building reliable multi-step AI agents.",
+      title: "Enterprise Agent Systems",
+      description: "Research on reliable multi-agent coordination for real-world enterprise scenarios.",
     },
   ];
 

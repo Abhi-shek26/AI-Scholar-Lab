@@ -20,6 +20,11 @@ export default function Admissions() {
       title: "Optional coding / AI evaluation",
       description: "For students with prior experience, we offer an optional technical evaluation.",
     },
+    {
+      num: "4",
+      title: "Formal interview",
+      description: "Formal interaction with Professors, Researchers, and AI Experts to assess fit and potential.",
+    },
   ];
 
   return (

@@ -7,6 +7,7 @@ import emailjs from "emailjs-com";
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const AMERICAN_TIMEZONE = "America/New_York";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -74,6 +75,7 @@ export default function Contact() {
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
+      timeZone: AMERICAN_TIMEZONE,
       timeZoneName: "short",
     });
 

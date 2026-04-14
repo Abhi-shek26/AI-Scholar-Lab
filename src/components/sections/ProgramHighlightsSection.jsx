@@ -8,8 +8,8 @@ export default function ProgramHighlightsSection() {
     "LLM Evaluation Systems (accuracy, benchmarking, performance)",
     "Hallucination Detection Systems",
     "Agentic AI Products (multi-agent workflows solving real problems)",
-    "Many other Agentic AI products",
-    "Idea to implementation - Focused product lab",
+    "AI SaaS Products (vertical and horizontal use cases)",
+    "Idea to implementation focused product lab",
   ];
 
   const researchTracks = [
@@ -23,8 +23,8 @@ export default function ProgramHighlightsSection() {
     "Digital Employees",
     "Agentic AI Workflows",
     "AI SaaS Products",
-    "Agentic AI products",
     "AI SDKs - Horizontal and vertical",
+    "Enterprise AI Tools",
   ];
 
   return (

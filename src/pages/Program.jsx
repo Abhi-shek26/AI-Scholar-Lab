@@ -3,48 +3,35 @@ import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 import { Link } from "react-router-dom";
 
-function getWindowDetails(date, windowType) {
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const monthShort = new Intl.DateTimeFormat("en-US", { month: "short" }).format(date);
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
+const AMERICAN_TIMEZONE = "America/New_York";
 
-  if (windowType === "mid") {
-    return {
-      startDay: 8,
-      endDay: 15,
-      label: `Mid of the Month (${monthShort} 8-15)`,
-    };
-  }
+function getNextIntakeDetails() {
+  const now = new Date();
+  const nextIntakeDate = new Date(
+    Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 15, 12, 0, 0)
+  );
 
-  const startDay = daysInMonth - 6;
+  const timeZone = AMERICAN_TIMEZONE;
+
   return {
-    startDay,
-    endDay: daysInMonth,
-    label: `Last Week of the Month (${monthShort} ${startDay}-${daysInMonth})`,
+    shortDate: new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      timeZone,
+    }).format(nextIntakeDate),
+    fullDate: new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+      timeZone,
+    }).format(nextIntakeDate),
+    timeZone,
   };
 }
 
-function SelectionWeekLabel() {
-  const now = new Date();
-  const today = now.getDate();
-  const year = now.getFullYear();
-  const month = now.getMonth();
-
-  const mid = getWindowDetails(now, "mid");
-  const last = getWindowDetails(now, "last");
-
-  if (today >= mid.startDay && today <= mid.endDay) return mid.label;
-  if (today >= last.startDay && today <= last.endDay) return last.label;
-
-  if (today < mid.startDay) return mid.label;
-  if (today < last.startDay) return last.label;
-
-  const nextMonthDate = new Date(year, month + 1, 1);
-  return getWindowDetails(nextMonthDate, "mid").label;
-}
-
 export default function Program() {
+  const nextIntake = getNextIntakeDetails();
+
   return (
     <MainLayout>
       <section
@@ -69,7 +56,7 @@ export default function Program() {
 
             <div className="mb-14 flex flex-wrap gap-3">
               <a href="#summer-intake" className="rounded-lg border border-accent/50 bg-accent/15 px-4 py-2 text-sm font-semibold text-accent hover:brightness-110 transition-all">
-                Jump to Summer Intake
+                Jump to Summer Intake (Next: {nextIntake.shortDate})
               </a>
               <a href="#full-fellowship" className="rounded-lg border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:border-accent/40 transition-all">
                 Jump to Full Fellowship
@@ -136,8 +123,9 @@ export default function Program() {
 
               <div className="mb-6 rounded-lg border border-accent/50 bg-accent/15 px-4 py-3 backdrop-blur-sm">
                 <p className="font-semibold text-accent">
-                  Next Selection Week: {SelectionWeekLabel()}
+                  Next Intake Date: {nextIntake.fullDate}
                 </p>
+                {/* <p className="text-xs text-gray-200 mt-1">Timezone: {nextIntake.timeZone}</p> */}
               </div>
 
               <h3 className="text-2xl font-display font-bold text-white mb-2">Summer AI Research & Product Fellowship</h3>
