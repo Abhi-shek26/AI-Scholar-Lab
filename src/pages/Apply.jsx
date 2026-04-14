@@ -519,8 +519,8 @@ export default function Apply() {
                   placeholder="I would build an AI system that..."
                 />
                 <div className="flex justify-between items-center mt-2">
-                  <p className="text-xs text-gray-400">Word count: {wordCount(formData.statementOfPurpose)}</p>
-                  {errors.statementOfPurpose && <p className="text-red-300 text-xs">{errors.statementOfPurpose}</p>}
+                  <p className="text-xs text-gray-400">Word count: {wordCount(formData.ideaDescription)}</p>
+                  {errors.ideaDescription && <p className="text-red-300 text-xs">{errors.ideaDescription}</p>}
                 </div>
               </div>
             </div>
